@@ -1,0 +1,22 @@
+services:
+  - type: web
+    runtime: static
+    name: colorado-du-benin
+    staticPublishPath: .
+    pullRequestPreviewsEnabled: false
+    headers:
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - path: /audio/*
+        name: Cache-Control
+        value: public, max-age=2592000
+      - path: /videos/*
+        name: Cache-Control
+        value: public, max-age=2592000
+      - path: /images/*
+        name: Cache-Control
+        value: public, max-age=2592000

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Colorado du Bénin — Circuits Courts & Immersion Authentique</title>
+<meta name="description" content="Vivez le Sud du Bénin comme un local : circuits 2-3 jours, rencontres avec pêcheurs, artisans et prêtres vaudou, canyons du Colorado du Bénin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--emeraude:#0f7b5a;--emeraude-dark:#0a5a42;--ocre:#c97b3c;--ocre-light:#e4a268;--turquoise:#2ec4c4;--or:#d4a017;--or-light:#f2c94c;--noir:#1a1a1a;--gris:#4a4a4a;--beige:#f8f3e8;--shadow:0 10px 40px rgba(0,0,0,.15);--shadow-soft:0 4px 20px rgba(0,0,0,.08)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Montserrat',sans-serif;color:var(--noir);background:#fff;line-height:1.6;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.2}
+a{color:inherit;text-decoration:none;transition:color .3s}
+img{max-width:100%;display:block}
+
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;padding:1.2rem 2rem;display:flex;justify-content:space-between;align-items:center;transition:all .4s;background:transparent}
+.header.scrolled{background:rgba(255,255,255,.97);box-shadow:var(--shadow-soft);padding:.8rem 2rem;backdrop-filter:blur(10px)}
+.logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:#fff;display:flex;align-items:center;gap:.5rem}
+.header.scrolled .logo{color:var(--emeraude-dark)}
+.logo-icon{width:40px;height:40px;background:linear-gradient(135deg,var(--or),var(--ocre));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.2rem;box-shadow:0 4px 12px rgba(212,160,23,.4)}
+.nav{display:flex;gap:2rem;align-items:center}
+.nav>a{color:#fff;font-weight:500;font-size:.95rem;position:relative;padding:.3rem 0;cursor:pointer}
+.header.scrolled .nav>a{color:var(--noir)}
+.nav>a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--or);transition:width .3s}
+.nav>a:hover::after{width:100%}
+.nav>a:hover{color:var(--or-light)}
+.header.scrolled .nav>a:hover{color:var(--ocre)}
+.menu-toggle{display:none;background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer}
+.header.scrolled .menu-toggle{color:var(--noir)}
+.lang-switch{display:inline-flex;gap:.5rem;padding:.4rem .8rem;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:30px;font-size:.8rem;font-weight:600;letter-spacing:1px;color:#fff;align-items:center}
+.header.scrolled .lang-switch{background:var(--beige);border-color:transparent;color:var(--emeraude-dark)}
+.lang-switch a{opacity:.55;transition:opacity .3s;cursor:pointer;padding:.1rem .3rem;border-radius:4px}
+.lang-switch a.active{opacity:1;color:var(--or-light);background:rgba(212,160,23,.2)}
+.header.scrolled .lang-switch a.active{color:var(--ocre);background:rgba(201,123,60,.15)}
+.lang-switch span{opacity:.35;font-size:.7rem}
+
+.hero{position:relative;height:75vh;min-height:520px;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,90,66,.55),rgba(0,0,0,.55)),url('images/hero.jpg') center/cover;z-index:1}
+.hero-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 0%,rgba(0,0,0,.4) 100%)}
+.hero-content{position:relative;z-index:2;max-width:900px;padding:0 2rem;animation:fadeUp 1.2s}
+.hero-eyebrow{display:inline-block;padding:.5rem 1.2rem;background:rgba(212,160,23,.3);border:1px solid var(--or);border-radius:30px;font-size:.85rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:1.5rem;font-weight:500}
+.hero h1{font-size:clamp(2.5rem,6vw,4.5rem);margin-bottom:1.5rem;text-shadow:0 4px 20px rgba(0,0,0,.4)}
+.hero h1 span{color:var(--or-light);font-style:italic}
+.hero p.subtitle{font-size:clamp(1.05rem,1.5vw,1.25rem);max-width:700px;margin:0 auto 2.5rem;opacity:.95;line-height:1.7}
+.hero-cta{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.scroll-down{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:3;color:#fff;font-size:.8rem;letter-spacing:2px;text-transform:uppercase;animation:bounce 2s infinite;cursor:pointer}
+.scroll-down::after{content:'';display:block;width:1px;height:30px;background:#fff;margin:.5rem auto 0}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)}}
+
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9rem 2rem;border-radius:50px;font-weight:600;font-size:.95rem;cursor:pointer;transition:all .3s;border:2px solid transparent;font-family:inherit;text-align:center}
+.btn-primary{background:var(--or);color:var(--noir);box-shadow:0 8px 24px rgba(212,160,23,.4)}
+.btn-primary:hover{background:var(--or-light);transform:translateY(-3px);box-shadow:0 12px 32px rgba(212,160,23,.5)}
+.btn-outline{background:transparent;color:#fff;border-color:#fff}
+.btn-outline:hover{background:#fff;color:var(--emeraude-dark);transform:translateY(-3px)}
+.btn-emeraude{background:var(--emeraude);color:#fff}
+.btn-emeraude:hover{background:var(--emeraude-dark);transform:translateY(-3px);box-shadow:0 8px 24px rgba(15,123,90,.4)}
+
+section{padding:6rem 2rem}
+.container{max-width:1200px;margin:0 auto}
+.section-header{text-align:center;max-width:750px;margin:0 auto 4rem}
+.section-eyebrow{color:var(--ocre);font-size:.85rem;letter-spacing:3px;text-transform:uppercase;font-weight:600;margin-bottom:1rem;display:block}
+.section-header h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:1rem;color:var(--emeraude-dark)}
+.section-header p{color:var(--gris);font-size:1.05rem}
+
+.why-us{background:var(--beige)}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem}
+.why-card{background:#fff;padding:2.5rem 2rem;border-radius:20px;text-align:center;transition:all .4s;box-shadow:var(--shadow-soft);border-top:4px solid transparent}
+.why-card:hover{transform:translateY(-10px);box-shadow:var(--shadow);border-top-color:var(--or)}
+.why-icon{width:80px;height:80px;margin:0 auto 1.5rem;background:linear-gradient(135deg,var(--emeraude),var(--turquoise));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:2rem;box-shadow:0 8px 20px rgba(15,123,90,.3)}
+.why-card h3{font-size:1.3rem;margin-bottom:1rem;color:var(--emeraude-dark)}
+.why-card p{color:var(--gris);font-size:.95rem}
+
+.circuits{background:#fff}
+.circuits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:2rem}
+.circuit-card{border-radius:20px;overflow:hidden;box-shadow:var(--shadow-soft);background:#fff;transition:all .4s;display:flex;flex-direction:column}
+.circuit-card:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+.circuit-img{position:relative;height:260px;overflow:hidden;background:linear-gradient(135deg,var(--emeraude) 0%,var(--turquoise) 50%,var(--ocre) 100%);display:flex;align-items:center;justify-content:center}
+.circuit-img::before{content:'📸 Photo à ajouter';position:absolute;color:rgba(255,255,255,.85);font-family:'Playfair Display',serif;font-size:1.2rem;font-style:italic;letter-spacing:1px;text-align:center;z-index:1;padding:0 1rem}
+.circuit-img img{position:relative;z-index:2}
+.circuit-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.circuit-card:hover .circuit-img img{transform:scale(1.1)}
+.circuit-badge{position:absolute;top:1rem;left:1rem;background:var(--or);color:var(--noir);padding:.4rem 1rem;border-radius:30px;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:1px;z-index:2}
+.circuit-featured{background:linear-gradient(135deg,#e4572e,#d4a017);color:#fff}
+.circuit-body{padding:1.8rem;flex:1;display:flex;flex-direction:column}
+.circuit-duration{color:var(--turquoise);font-size:.85rem;font-weight:600;letter-spacing:1px;margin-bottom:.5rem}
+.circuit-body h3{font-size:1.5rem;margin-bottom:.8rem;color:var(--emeraude-dark)}
+.circuit-body>p{color:var(--gris);margin-bottom:1.5rem;font-size:.95rem;flex:1}
+.circuit-meta{display:flex;justify-content:space-between;align-items:center;padding-top:1.2rem;border-top:1px solid #eee}
+.circuit-price{font-size:1.4rem;font-weight:700;color:var(--ocre);font-family:'Playfair Display',serif}
+.circuit-price span{font-size:.75rem;color:var(--gris);font-family:'Montserrat',sans-serif;font-weight:400}
+.circuit-level{font-size:.8rem;color:var(--gris)}
+
+.guide-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem}
+.guide-topic{background:#fff;border-radius:20px;overflow:hidden;box-shadow:var(--shadow-soft);transition:all .4s;display:flex;flex-direction:column}
+.guide-topic:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+.guide-topic-img{height:200px;overflow:hidden;position:relative;background:#eee}
+.guide-topic-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.guide-topic:hover .guide-topic-img img{transform:scale(1.08)}
+.guide-topic-num{position:absolute;top:1rem;left:1rem;width:40px;height:40px;background:var(--or);color:var(--noir);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:1.2rem;z-index:2}
+.guide-topic-body{padding:1.5rem;flex:1}
+.guide-topic h3{color:var(--emeraude-dark);margin-bottom:.8rem;font-size:1.2rem}
+.guide-topic p{color:var(--gris);font-size:.9rem}
+
+.vaudou-section{background:linear-gradient(135deg,var(--noir) 0%,#2a1a0a 100%);color:#fff;position:relative;overflow:hidden}
+.vaudou-section::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1920&q=80') center/cover;opacity:.25}
+.vaudou-content{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.vaudou-text .section-eyebrow{color:var(--or-light)}
+.vaudou-text h2{color:#fff}
+.vaudou-text p{color:rgba(255,255,255,.85);margin-bottom:1.5rem;font-size:1.05rem}
+.vaudou-list{list-style:none;margin:2rem 0}
+.vaudou-list li{padding:.7rem 0;padding-left:2rem;position:relative;color:rgba(255,255,255,.9);border-bottom:1px solid rgba(255,255,255,.1)}
+.vaudou-list li::before{content:'✦';position:absolute;left:0;color:var(--or);font-size:1.2rem}
+.vaudou-image{border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5);position:relative;aspect-ratio:4/5;background:#333}
+.vaudou-image img{width:100%;height:100%;object-fit:cover}
+
+.guides-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1.2rem;max-width:1400px;margin:0 auto}
+@media (max-width:1100px){.guides-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:700px){.guides-grid{grid-template-columns:repeat(2,1fr);gap:1rem}}
+.guide-card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:var(--shadow-soft);transition:all .4s;text-align:center}
+.guide-card:hover{transform:translateY(-8px);box-shadow:var(--shadow)}
+.guide-card-img{height:220px;overflow:hidden;position:relative;background:#eee}
+.guide-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.guide-card:hover .guide-card-img img{transform:scale(1.08)}
+.guide-card-body{padding:1.3rem}
+.guide-card-body h3{color:var(--emeraude-dark);margin-bottom:.3rem;font-size:1.15rem}
+.guide-role{color:var(--ocre);font-size:.75rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:1rem;display:block}
+.guide-quote{color:var(--gris);font-style:italic;font-size:.88rem;line-height:1.5}
+
+.testimonials{background:var(--beige)}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
+.testi-card{background:#fff;padding:2.5rem;border-radius:20px;position:relative;box-shadow:var(--shadow-soft);transition:transform .3s}
+.testi-card:hover{transform:translateY(-5px)}
+.testi-card::before{content:'"';position:absolute;top:-20px;left:20px;font-family:'Playfair Display',serif;font-size:6rem;color:var(--or);line-height:1;opacity:.3}
+.testi-stars{color:var(--or);margin-bottom:1rem;font-size:1rem}
+.testi-text{color:var(--gris);font-style:italic;margin-bottom:1.5rem;position:relative;z-index:1}
+.testi-author{display:flex;align-items:center;gap:1rem}
+.testi-avatar{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--emeraude),var(--turquoise));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+.testi-name{font-weight:700;color:var(--emeraude-dark)}
+.testi-loc{font-size:.85rem;color:var(--gris)}
+
+.cta-banner{background:linear-gradient(135deg,var(--emeraude) 0%,var(--emeraude-dark) 100%);color:#fff;text-align:center;padding:5rem 2rem;position:relative;overflow:hidden}
+.cta-banner::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?w=1920&q=80') center/cover;opacity:.15}
+.cta-banner h2{font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:1rem;position:relative}
+.cta-banner p{font-size:1.1rem;opacity:.95;margin-bottom:2rem;position:relative;max-width:600px;margin-left:auto;margin-right:auto}
+.cta-banner .btn{position:relative}
+
+.parallax-quote{padding:8rem 2rem;text-align:center;color:#fff;position:relative;background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=1920&q=80') center/cover fixed;background-color:#1a1a1a}
+.parallax-quote blockquote{max-width:800px;margin:0 auto;font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.2rem);font-style:italic;line-height:1.5}
+.parallax-quote cite{display:block;margin-top:2rem;font-family:'Montserrat',sans-serif;font-size:.9rem;letter-spacing:3px;text-transform:uppercase;font-style:normal;color:var(--or-light)}
+
+.form-section{background:var(--beige)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem}
+.contact-info{padding:1rem 0}
+.contact-info h3{color:var(--emeraude-dark);margin-bottom:1.5rem;font-size:1.8rem;font-family:'Playfair Display',serif}
+.contact-item{display:flex;gap:1rem;margin-bottom:1.5rem;align-items:start}
+.contact-item-icon{width:45px;height:45px;background:linear-gradient(135deg,var(--emeraude),var(--turquoise));border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0;font-size:1.1rem}
+.contact-item strong{display:block;color:var(--emeraude-dark);margin-bottom:.2rem}
+.contact-item a,.contact-item p{color:var(--gris);font-size:.95rem}
+.contact-item a:hover{color:var(--ocre)}
+.socials{display:flex;gap:1rem;margin-top:2rem}
+.social-btn{width:45px;height:45px;border-radius:50%;background:var(--emeraude);color:#fff;display:flex;align-items:center;justify-content:center;transition:all .3s;font-weight:700;font-size:.85rem}
+.social-btn:hover{background:var(--or);transform:translateY(-3px)}
+.form-wrapper{background:#fff;padding:2.5rem;border-radius:20px;box-shadow:var(--shadow)}
+.form-group{margin-bottom:1.2rem}
+.form-group label{display:block;font-weight:600;margin-bottom:.5rem;color:var(--emeraude-dark);font-size:.9rem}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:.9rem 1.2rem;border:2px solid #e8e8e8;border-radius:10px;font-family:inherit;font-size:1rem;transition:border-color .3s;background:#fff}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--emeraude)}
+.form-group textarea{min-height:110px;resize:vertical}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-submit{width:100%;justify-content:center}
+
+.app-badges{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.5rem}
+.app-badge{display:inline-flex;align-items:center;gap:.6rem;padding:.7rem 1.2rem;background:var(--noir);color:#fff;border-radius:10px;transition:all .3s;font-size:.85rem}
+.app-badge:hover{background:var(--emeraude-dark);transform:translateY(-3px)}
+.app-badge-icon{font-size:1.5rem}
+.app-badge-text{display:flex;flex-direction:column;line-height:1.1}
+.app-badge-text small{font-size:.7rem;opacity:.7}
+.app-badge-text strong{font-size:.95rem}
+
+.footer{background:var(--noir);color:rgba(255,255,255,.85);padding:4rem 2rem 2rem}
+.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer h4{color:var(--or);margin-bottom:1.2rem;font-family:'Montserrat',sans-serif;font-size:.95rem;text-transform:uppercase;letter-spacing:2px}
+.footer-about p{font-size:.9rem;line-height:1.7;opacity:.7;margin-top:1rem}
+.footer ul{list-style:none}
+.footer ul li{padding:.35rem 0}
+.footer ul li a{font-size:.9rem;opacity:.75;transition:all .3s;cursor:pointer}
+.footer ul li a:hover{color:var(--or);opacity:1}
+.footer-bottom{max-width:1200px;margin:0 auto;padding-top:2rem;border-top:1px solid rgba(255,255,255,.1);text-align:center;font-size:.85rem;opacity:.5}
+
+.reveal{opacity:0;transform:translateY(30px);transition:all .8s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ===== PROMESSE SECTION ===== */
+.promesse{background:linear-gradient(135deg,#1a1a1a 0%,#2a1a0a 100%);color:#fff;padding:4rem 2rem;position:relative;overflow:hidden}
+.promesse::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 30%,rgba(212,160,23,.15),transparent 50%),radial-gradient(circle at 80% 70%,rgba(46,196,196,.12),transparent 50%)}
+.promesse-header{text-align:center;max-width:780px;margin:0 auto 2.5rem;position:relative}
+.promesse-header .section-eyebrow{color:var(--or-light)}
+.promesse-header h2{color:#fff;font-size:clamp(2rem,4vw,3rem);margin-bottom:1rem}
+.promesse-header p{color:rgba(255,255,255,.8);font-size:1.1rem}
+.promesse-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;max-width:1300px;margin:0 auto;position:relative}
+.promesse-card{background:rgba(255,255,255,.04);border:1px solid rgba(212,160,23,.3);border-radius:18px;padding:1.4rem 1.2rem;text-align:center;transition:all .4s;backdrop-filter:blur(10px)}
+.promesse-card:hover{background:rgba(212,160,23,.08);border-color:var(--or);transform:translateY(-8px)}
+.promesse-icon{width:56px;height:56px;margin:0 auto .8rem;background:linear-gradient(135deg,var(--or),var(--ocre));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;box-shadow:0 8px 20px rgba(212,160,23,.4)}
+.promesse-card h3{color:var(--or-light);font-size:1rem;margin-bottom:.5rem;font-family:'Playfair Display',serif}
+.promesse-card p{color:rgba(255,255,255,.85);font-size:.82rem;line-height:1.5}
+.promesse-highlight{background:rgba(212,160,23,.12);border:2px solid var(--or);border-radius:50px;padding:.4rem 1.2rem;display:inline-block;font-size:.75rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--or-light);margin-bottom:1rem}
+
+/* ===== MUSIC PLAYER ===== */
+.music-player{position:fixed;bottom:2rem;right:2rem;z-index:999;display:flex;align-items:center;gap:.8rem;padding:.8rem 1.4rem;background:rgba(10,90,66,.95);color:#fff;border-radius:50px;box-shadow:0 8px 24px rgba(0,0,0,.25);cursor:pointer;transition:all .3s;backdrop-filter:blur(10px);font-size:.9rem;font-weight:500;border:2px solid var(--or)}
+.music-player:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.3);background:var(--emeraude-dark)}
+.music-player-icon{width:34px;height:34px;background:var(--or);color:var(--noir);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.music-player.playing .music-player-icon{animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(212,160,23,.7)}50%{box-shadow:0 0 0 10px rgba(212,160,23,0)}}
+.music-wave{display:inline-flex;gap:2px;align-items:flex-end;height:16px}
+.music-wave span{width:3px;background:#fff;border-radius:2px;animation:wave 1s infinite ease-in-out}
+.music-wave span:nth-child(1){animation-delay:0s;height:40%}
+.music-wave span:nth-child(2){animation-delay:.2s;height:80%}
+.music-wave span:nth-child(3){animation-delay:.4s;height:60%}
+.music-wave span:nth-child(4){animation-delay:.1s;height:90%}
+@keyframes wave{0%,100%{transform:scaleY(.5)}50%{transform:scaleY(1)}}
+.music-player:not(.playing) .music-wave{display:none}
+@media (max-width:700px){
+.music-player{bottom:1rem;right:1rem;padding:.7rem 1rem;font-size:.8rem}
+.music-player-text{display:none}
+}
+
+@media (max-width:900px){
+.vaudou-content{grid-template-columns:1fr;gap:2rem}
+.contact-grid{grid-template-columns:1fr;gap:2rem}
+.footer-grid{grid-template-columns:1fr 1fr;gap:2rem}
+}
+@media (max-width:700px){
+section{padding:4rem 1.5rem}
+.menu-toggle{display:block}
+.nav{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:2rem;box-shadow:var(--shadow);gap:1.2rem}
+.nav.open{display:flex}
+.nav>a{color:var(--noir)!important}
+.form-row{grid-template-columns:1fr}
+.footer-grid{grid-template-columns:1fr}
+.hero-cta{flex-direction:column;align-items:center}
+.hero-cta .btn{width:100%;max-width:300px;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- LECTEUR MUSIQUE FLOTTANT -->
+<audio id="bg-music" loop preload="auto">
+  <source src="audio/calavi-baobab.mp3" type="audio/mpeg">
+</audio>
+<div class="music-player" id="music-toggle" title="Écouter / Pause">
+  <div class="music-player-icon" id="music-icon">▶</div>
+  <span class="music-player-text" id="music-text">Écouter l'ambiance</span>
+  <div class="music-wave"><span></span><span></span><span></span><span></span></div>
+</div>
+
+<header class="header">
+  <a href="#accueil" class="logo"><span class="logo-icon">☀</span><span>Colorado du Bénin</span></a>
+  <button class="menu-toggle" aria-label="Menu">☰</button>
+  <nav class="nav">
+    <a href="#accueil" data-i18n="nav.home">Accueil</a>
+    <a href="#circuits" data-i18n="nav.tours">Circuits</a>
+    <a href="#guide" data-i18n="nav.guide">Guide</a>
+    <a href="#rencontres" data-i18n="nav.meet">Rencontres</a>
+    <a href="#vaudou" data-i18n="nav.voodoo">Vaudou</a>
+    <a href="#contact" data-i18n="nav.contact">Contact</a>
+    <div class="lang-switch">
+      <a data-lang="fr" class="active">FR</a><span>|</span>
+      <a data-lang="en">EN</a><span>|</span>
+      <a data-lang="fon">FON</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero" id="accueil" style="padding:0">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow" data-i18n="hero.eyebrow">Sud Bénin · Authentique · 2-3 jours</span>
+    <h1 data-i18n="hero.title">Découvrez le Sud du Bénin <span>autrement</span></h1>
+    <p class="subtitle" data-i18n="hero.subtitle">Des circuits courts, des rencontres vraies et une initiation au vaudou. Pas de tourisme de masse — juste des expériences uniques avec ceux qui font vivre la culture béninoise.</p>
+  </div>
+  <a href="#pourquoi" class="scroll-down" data-i18n="hero.scroll">Découvrir</a>
+</section>
+
+<!-- ===== NOTRE PROMESSE ===== -->
+<section class="promesse">
+  <div class="promesse-header reveal">
+    <span class="promesse-highlight" data-i18n="promesse.badge">Expérience unique</span>
+    <h2 data-i18n="promesse.title">Vivez, on s'occupe du reste</h2>
+    <p data-i18n="promesse.text">Cinq promesses qui transforment un simple voyage en souvenir indélébile.</p>
+  </div>
+  <div class="promesse-grid">
+    <div class="promesse-card reveal">
+      <div class="promesse-icon">🎬</div>
+      <h3 data-i18n="promesse.c1t">Votre propre film</h3>
+      <p data-i18n="promesse.c1p">Vous repartez avec le film professionnel de votre séjour — un souvenir à vie.</p>
+    </div>
+    <div class="promesse-card reveal">
+      <div class="promesse-icon">📵</div>
+      <h3 data-i18n="promesse.c2t">Laissez votre téléphone</h3>
+      <p data-i18n="promesse.c2p">Vivez à 100%, on filme pour vous. Soyez pleinement présent à chaque instant.</p>
+    </div>
+    <div class="promesse-card reveal">
+      <div class="promesse-icon">🇧🇯</div>
+      <h3 data-i18n="promesse.c3t">Comme un vrai Béninois</h3>
+      <p data-i18n="promesse.c3p">Immersion totale dans la vie locale — vous vous sentirez chez vous.</p>
+    </div>
+    <div class="promesse-card reveal">
+      <div class="promesse-icon">💰</div>
+      <h3 data-i18n="promesse.c4t">Prix locaux garantis</h3>
+      <p data-i18n="promesse.c4p">Vous payerez toujours les vrais tarifs du pays. Jamais de "prix touriste".</p>
+    </div>
+    <div class="promesse-card reveal">
+      <div class="promesse-icon">🎵</div>
+      <h3 data-i18n="promesse.c5t">Votre chanson souvenir</h3>
+      <p data-i18n="promesse.c5p">Donnez-nous votre prénom et votre feedback — une musique béninoise originale racontera votre aventure.</p>
+    </div>
+  </div>
+</section>
+
+<section class="why-us" id="pourquoi">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow" data-i18n="why.eyebrow">Pourquoi nous choisir</span>
+      <h2 data-i18n="why.title">Une autre façon de voyager au Bénin</h2>
+      <p data-i18n="why.text">Oubliez les circuits standardisés. Ici, chaque rencontre est vraie, chaque pas est pensé pour vous connecter à l'âme béninoise.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal"><div class="why-icon">👥</div><h3 data-i18n="why.c1t">Guides locaux passionnés</h3><p data-i18n="why.c1p">Pêcheurs, artisans, prêtres vaudou — vos hôtes vivent et racontent leur Bénin, pas un script touristique.</p></div>
+      <div class="why-card reveal"><div class="why-icon">🗺</div><h3 data-i18n="why.c2t">Circuits sur mesure</h3><p data-i18n="why.c2p">2 ou 3 jours pour explorer l'essentiel sans précipitation. Nous adaptons l'itinéraire selon vos envies.</p></div>
+      <div class="why-card reveal"><div class="why-icon">✨</div><h3 data-i18n="why.c3t">Immersion spirituelle</h3><p data-i18n="why.c3p">Initiation au vaudou avec des maîtres reconnus, dans un cadre respectueux, sécurisé et profondément humain.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="circuits" id="circuits">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow" data-i18n="tours.eyebrow">Nos circuits</span>
+      <h2 data-i18n="tours.title">Deux formules pour vivre le Sud Bénin</h2>
+      <p data-i18n="tours.text">Une découverte essentielle en 2 jours, ou une immersion avec initiation vaudou — à vous de choisir.</p>
+    </div>
+    <div class="circuits-grid" style="grid-template-columns:repeat(auto-fit,minmax(350px,1fr));max-width:900px;margin:0 auto">
+      <article class="circuit-card reveal">
+        <div class="circuit-img"><video autoplay muted loop playsinline poster="images/circuit-decouverte.jpg" style="width:100%;height:100%;object-fit:cover;position:relative;z-index:2"><source src="videos/ganvie.mp4" type="video/mp4"></video><span class="circuit-badge" data-i18n="tours.days2">2 jours</span></div>
+        <div class="circuit-body">
+          <span class="circuit-duration" data-i18n="tours.t1tag">GANVIÉ · OUIDAH</span>
+          <h3 data-i18n="tours.t1title">Découverte — Ganvié & Ouidah</h3>
+          <p data-i18n="tours.t1desc">La cité lacustre de Ganvié en pirogue, Ouidah et la Porte du Non-Retour, le temple des pythons, le marché Dantokpa.</p>
+          <div class="circuit-meta"><div class="circuit-price">120 000 <span data-i18n="tours.perperson">FCFA / pers.</span></div><div class="circuit-level" data-i18n="tours.t1level">🟢 Facile · Famille</div></div>
+        </div>
+      </article>
+      <article class="circuit-card reveal">
+        <div class="circuit-img"><img src="images/circuit-vaudou.jpg" alt="Circuit avec initiation vaudou" onerror="this.style.display='none'"><span class="circuit-badge circuit-featured" data-i18n="tours.signature">★ Initiation Vaudou</span></div>
+        <div class="circuit-body">
+          <span class="circuit-duration" data-i18n="tours.t2tag">GANVIÉ · OUIDAH · VAUDOU</span>
+          <h3 data-i18n="tours.t2title">Immersion — Ganvié, Ouidah & Initiation Vaudou</h3>
+          <p data-i18n="tours.t2desc">Le circuit Découverte + une initiation vaudou complète avec un prêtre reconnu : rituel de purification, danse des esprits, offrandes et le Fa.</p>
+          <div class="circuit-meta"><div class="circuit-price">180 000 <span data-i18n="tours.perperson">FCFA / pers.</span></div><div class="circuit-level" data-i18n="tours.t2level">🟡 Facile · Spirituel</div></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="parallax-quote">
+  <blockquote><span data-i18n="quote.text">« Le vaudou n'est pas de la magie noire. C'est une philosophie, une façon de vivre en harmonie avec la nature. »</span><cite data-i18n="quote.author">— Prêtre Vaudou</cite></blockquote>
+</div>
+
+<section class="circuits" id="guide">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow" data-i18n="guide.eyebrow">Guide du voyageur</span>
+      <h2 data-i18n="guide.title">Le Bénin, joyau caché de l'Afrique de l'Ouest</h2>
+      <p data-i18n="guide.text">Tout ce qu'il faut savoir avant de partir — 8 rubriques essentielles.</p>
+    </div>
+    <div class="guide-grid" style="grid-template-columns:repeat(5,1fr);max-width:1400px;margin:0 auto;gap:1.3rem">
+      <article class="guide-topic reveal"><div class="guide-topic-img"><span class="guide-topic-num">1</span><img src="images/guide-ouidah.jpg" alt="Ouidah"></div><div class="guide-topic-body"><h3 data-i18n="guide.g1t">Ouidah</h3><p data-i18n="guide.g1p">La Porte du Non-Retour, le temple des pythons, le musée d'histoire de l'esclavage.</p></div></article>
+      <article class="guide-topic reveal"><div class="guide-topic-img"><span class="guide-topic-num">2</span><img src="images/guide-abomey.jpg" alt="Abomey Calavi"></div><div class="guide-topic-body"><h3 data-i18n="guide.g2t">Abomey Calavi</h3><p data-i18n="guide.g2p">L'embarcadère pour Ganvié, marché animé, université et vie quotidienne.</p></div></article>
+      <article class="guide-topic reveal"><div class="guide-topic-img"><span class="guide-topic-num">3</span><img src="images/guide-cotonou.jpg" alt="Cotonou"></div><div class="guide-topic-body"><h3 data-i18n="guide.g3t">Cotonou</h3><p data-i18n="guide.g3p">La capitale économique, marché Dantokpa, Monument de l'Amazone, vie trépidante.</p></div></article>
+      <article class="guide-topic reveal"><div class="guide-topic-img"><span class="guide-topic-num">4</span><img src="images/guide-ganvie.jpg" alt="Ganvié"></div><div class="guide-topic-body"><h3 data-i18n="guide.g4t">Ganvié</h3><p data-i18n="guide.g4p">La Venise africaine, cité lacustre, maisons sur pilotis, pirogue et pêcheurs.</p></div></article>
+      <article class="guide-topic reveal"><div class="guide-topic-img"><span class="guide-topic-num">5</span><img src="images/guide-initiation.jpg" alt="Initiation vaudou"></div><div class="guide-topic-body"><h3 data-i18n="guide.g5t">Initiation vaudou</h3><p data-i18n="guide.g5p">Rituel complet avec un prêtre reconnu, offrandes et révélation de votre Fa.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="vaudou-section" id="vaudou">
+  <div class="container vaudou-content">
+    <div class="vaudou-text reveal">
+      <span class="section-eyebrow" data-i18n="voodoo.eyebrow">Immersion spirituelle</span>
+      <h2 data-i18n="voodoo.title">Le vaudou, bien plus qu'un cliché</h2>
+      <p data-i18n="voodoo.text">Religion à part entière reconnue par l'UNESCO, le vaudou est né ici, au Bénin. Avec nous, vous ne ferez pas que l'observer : vous serez initié par un prêtre vaudou dans un cadre respectueux et sécurisé.</p>
+      <ul class="vaudou-list">
+        <li data-i18n="voodoo.l1"><strong>Rituel de purification</strong> — bain d'herbes, fumigation</li>
+        <li data-i18n="voodoo.l2"><strong>Danse des esprits</strong> — chants et percussions</li>
+        <li data-i18n="voodoo.l3"><strong>Rencontre avec les divinités</strong> — offrandes et prières</li>
+        <li data-i18n="voodoo.l4"><strong>Explication des symboles</strong> — veves, fétiches, légendes</li>
+        <li data-i18n="voodoo.l5"><strong>Votre Fa personnel</strong> — vous partirez avec votre Fa révélé</li>
+      </ul>
+    </div>
+    <div class="vaudou-image reveal"><img src="images/vaudou.jpg" alt="Statue Legba vaudou"></div>
+  </div>
+</section>
+
+<section class="circuits" id="rencontres">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow" data-i18n="meet.eyebrow">Vos guides · Vos hôtes · Vos maîtres</span>
+      <h2 data-i18n="meet.title">Rencontres authentiques</h2>
+      <p data-i18n="meet.text">Ce ne sont pas des guides touristiques. Ce sont des Béninois qui vous ouvrent leur monde.</p>
+    </div>
+    <div class="guides-grid">
+      <article class="guide-card reveal"><div class="guide-card-img"><img src="images/charles.jpg" alt="Charles" onerror="this.style.display='none'"></div><div class="guide-card-body"><h3>Charles</h3><span class="guide-role" data-i18n="meet.r1">Coordinateur d'organisation · Abomey Calavi</span><p class="guide-quote" data-i18n="meet.q1">« J'organise la coordination pour votre bien-être avec les différents interlocuteurs sur place. »</p></div></article>
+      <article class="guide-card reveal"><div class="guide-card-img"><img src="images/espoir.jpg" alt="Espoir" onerror="this.style.display='none'"></div><div class="guide-card-body"><h3>Espoir</h3><span class="guide-role" data-i18n="meet.r2">Résident · Ganvié</span><p class="guide-quote" data-i18n="meet.q2">« Je vous ferai découvrir ma famille sur l'eau à Ganvié. »</p></div></article>
+      <article class="guide-card reveal"><div class="guide-card-img"><img src="images/baudelaire.jpg" alt="Baudelaire" onerror="this.style.display='none'"></div><div class="guide-card-body"><h3>Baudelaire</h3><span class="guide-role" data-i18n="meet.r3">Journaliste professionnel</span><p class="guide-quote" data-i18n="meet.q3">« Vous pourrez vivre vos moments à 100%. Vous partirez avec le film de votre séjour, un souvenir fantastique. »</p></div></article>
+      <article class="guide-card reveal"><div class="guide-card-img"><img src="images/primael.jpg" alt="Primaèl" onerror="this.style.display='none'"></div><div class="guide-card-body"><h3>Prymaèl</h3><span class="guide-role" data-i18n="meet.r4">Guide tout terrain · Abomey Calavi</span><p class="guide-quote" data-i18n="meet.q4">« Je connais chaque lieu et son histoire. »</p></div></article>
+      <article class="guide-card reveal"><div class="guide-card-img"><img src="images/johanes.jpg" alt="Johanes" onerror="this.style.display='none'"></div><div class="guide-card-body"><h3>Johanes</h3><span class="guide-role" data-i18n="meet.r6">Guide · Cotonou</span><p class="guide-quote" data-i18n="meet.q6">« Guide toujours là pour faire le lien avec la population, vous vous sentirez comme un vrai Béninois. C'est mon objectif. »</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow" data-i18n="testi.eyebrow">Ils ont vécu l'aventure</span>
+      <h2 data-i18n="testi.title">Des voyageurs transformés</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal"><div class="testi-stars">★★★★★</div><p class="testi-text" data-i18n="testi.t1">J'ai vécu une expérience inoubliable avec mon guide Charles, un pêcheur qui m'a fait découvrir les secrets de la lagune. Et l'initiation au vaudou… waouh !</p><div class="testi-author"><div class="testi-avatar">S</div><div><div class="testi-name">Sophie M.</div><div class="testi-loc" data-i18n="testi.l1">France · Circuit 1</div></div></div></div>
+      <div class="testi-card reveal"><div class="testi-stars">★★★★★</div><p class="testi-text" data-i18n="testi.t2">Le Colorado du Bénin est un secret bien gardé. Des paysages de canyons rouges incroyables et un accueil villageois d'une générosité rare.</p><div class="testi-author"><div class="testi-avatar">T</div><div><div class="testi-name">Thomas L.</div><div class="testi-loc" data-i18n="testi.l2">Québec · Circuit 2</div></div></div></div>
+      <div class="testi-card reveal"><div class="testi-stars">★★★★★</div><p class="testi-text" data-i18n="testi.t3">Je suis partie sceptique, je suis revenue transformée. Le vaudou, c'est une connexion profonde avec la nature et les ancêtres.</p><div class="testi-author"><div class="testi-avatar">C</div><div><div class="testi-name">Claire D.</div><div class="testi-loc" data-i18n="testi.l3">Belgique · Initiation</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="form-section" id="contact">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-eyebrow" data-i18n="contact.eyebrow">Prêt à partir ?</span>
+      <h2 data-i18n="contact.title">Parlons de votre voyage</h2>
+      <p data-i18n="contact.text">Un message, un appel WhatsApp — et nous vous répondons sous 24h.</p>
+    </div>
+    <div class="contact-row reveal" style="display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-top:3rem">
+      <a href="https://wa.me/22997987577" target="_blank" class="contact-item" style="background:#fff;padding:1.2rem 1.8rem;border-radius:50px;box-shadow:var(--shadow-soft);transition:all .3s;text-decoration:none">
+        <div class="contact-item-icon">💬</div>
+        <div><strong>WhatsApp 1</strong><span style="display:block;color:var(--gris);font-size:.95rem">+229 97 98 75 77</span></div>
+      </a>
+      <a href="https://wa.me/22954130608" target="_blank" class="contact-item" style="background:#fff;padding:1.2rem 1.8rem;border-radius:50px;box-shadow:var(--shadow-soft);transition:all .3s;text-decoration:none">
+        <div class="contact-item-icon">💬</div>
+        <div><strong>WhatsApp 2</strong><span style="display:block;color:var(--gris);font-size:.95rem">+229 54 13 06 08</span></div>
+      </a>
+      <a href="mailto:colorado_du_benin@gmail.com" class="contact-item" style="background:#fff;padding:1.2rem 1.8rem;border-radius:50px;box-shadow:var(--shadow-soft);transition:all .3s;text-decoration:none">
+        <div class="contact-item-icon">✉</div>
+        <div><strong>Email</strong><span style="display:block;color:var(--gris);font-size:.95rem">colorado_du_benin@gmail.com</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<script>
+const translations={
+  fr:{"nav.home":"Accueil","nav.tours":"Circuits","nav.guide":"Guide","nav.meet":"Rencontres","nav.voodoo":"Vaudou","nav.contact":"Contact","hero.eyebrow":"Sud Bénin · Authentique · 2-3 jours","hero.title":"Découvrez le Sud du Bénin <span>autrement</span>","hero.subtitle":"Des circuits courts, des rencontres vraies et une initiation au vaudou. Pas de tourisme de masse — juste des expériences uniques avec ceux qui font vivre la culture béninoise.","hero.cta1":"Je réserve mon circuit →","hero.cta2":"Découvrir nos guides","hero.scroll":"Découvrir","promesse.badge":"Expérience unique","promesse.title":"Vivez, on s'occupe du reste","promesse.text":"Cinq promesses qui transforment un simple voyage en souvenir indélébile.","promesse.c1t":"Votre propre film","promesse.c1p":"Vous repartez avec le film professionnel de votre séjour — un souvenir à vie.","promesse.c2t":"Laissez votre téléphone","promesse.c2p":"Vivez à 100%, on filme pour vous. Soyez pleinement présent à chaque instant.","promesse.c3t":"Comme un vrai Béninois","promesse.c3p":"Immersion totale dans la vie locale — vous vous sentirez chez vous.","promesse.c4t":"Prix locaux garantis","promesse.c4p":"Vous payerez toujours les vrais tarifs du pays. Jamais de \"prix touriste\".","promesse.c5t":"Votre chanson souvenir","promesse.c5p":"Donnez-nous votre prénom et votre feedback — une musique béninoise originale racontera votre aventure.","why.eyebrow":"Pourquoi nous choisir","why.title":"Une autre façon de voyager au Bénin","why.text":"Oubliez les circuits standardisés. Ici, chaque rencontre est vraie, chaque pas est pensé pour vous connecter à l'âme béninoise.","why.c1t":"Guides locaux passionnés","why.c1p":"Pêcheurs, artisans, prêtres vaudou — vos hôtes vivent et racontent leur Bénin, pas un script touristique.","why.c2t":"Circuits sur mesure","why.c2p":"2 ou 3 jours pour explorer l'essentiel sans précipitation. Nous adaptons l'itinéraire selon vos envies.","why.c3t":"Immersion spirituelle","why.c3p":"Initiation au vaudou avec des maîtres reconnus, dans un cadre respectueux, sécurisé et profondément humain.","tours.eyebrow":"Nos circuits","tours.title":"Deux formules pour vivre le Sud Bénin","tours.text":"Une découverte essentielle en 2 jours, ou une immersion avec initiation vaudou — à vous de choisir.","tours.days2":"2 jours","tours.signature":"★ Initiation Vaudou","tours.perperson":"FCFA / pers.","tours.t1tag":"GANVIÉ · OUIDAH","tours.t1title":"Découverte — Ganvié & Ouidah","tours.t1desc":"La cité lacustre de Ganvié en pirogue, Ouidah et la Porte du Non-Retour, le temple des pythons, le marché Dantokpa.","tours.t1level":"🟢 Facile · Famille","tours.t2tag":"GANVIÉ · OUIDAH · VAUDOU","tours.t2title":"Immersion — Ganvié, Ouidah & Initiation Vaudou","tours.t2desc":"Le circuit Découverte + une initiation vaudou complète avec un prêtre reconnu : rituel de purification, danse des esprits, offrandes et le Fa.","tours.t2level":"🟡 Facile · Spirituel","quote.text":"« Le vaudou n'est pas de la magie noire. C'est une philosophie, une façon de vivre en harmonie avec la nature. »","quote.author":"— Prêtre Vaudou","guide.eyebrow":"Guide du voyageur","guide.title":"Le Bénin, joyau caché de l'Afrique de l'Ouest","guide.text":"5 lieux hors des sentiers battus, pour vivre l'expérience réellement.","guide.g1t":"Ouidah","guide.g1p":"La Porte du Non-Retour, le temple des pythons, le musée d'histoire de l'esclavage.","guide.g2t":"Abomey Calavi","guide.g2p":"L'embarcadère pour Ganvié, marché animé, université et vie quotidienne.","guide.g3t":"Cotonou","guide.g3p":"La capitale économique, marché Dantokpa, Monument de l'Amazone, vie trépidante.","guide.g4t":"Ganvié","guide.g4p":"La Venise africaine, cité lacustre, maisons sur pilotis, pirogue et pêcheurs.","guide.g5t":"Initiation vaudou","guide.g5p":"Rituel complet avec un prêtre reconnu, offrandes et révélation de votre Fa.","voodoo.eyebrow":"Immersion spirituelle","voodoo.title":"Le vaudou, bien plus qu'un cliché","voodoo.text":"Religion à part entière reconnue par l'UNESCO, le vaudou est né ici, au Bénin. Avec nous, vous ne ferez pas que l'observer : vous serez initié par un prêtre vaudou dans un cadre respectueux et sécurisé.","voodoo.l1":"<strong>Rituel de purification</strong> — bain d'herbes, fumigation","voodoo.l2":"<strong>Danse des esprits</strong> — chants et percussions","voodoo.l3":"<strong>Rencontre avec les divinités</strong> — offrandes et prières","voodoo.l4":"<strong>Explication des symboles</strong> — veves, fétiches, légendes","voodoo.l5":"<strong>Votre Fa personnel</strong> — vous partirez avec votre Fa révélé","voodoo.cta":"Réserver mon initiation","meet.eyebrow":"Vos guides · Vos hôtes · Vos maîtres","meet.title":"Rencontres authentiques","meet.text":"Ce ne sont pas des guides touristiques. Ce sont des Béninois qui vous ouvrent leur monde.","meet.r1":"Coordinateur d'organisation · Abomey Calavi","meet.q1":"« J'organise la coordination pour votre bien-être avec les différents interlocuteurs sur place. »","meet.r2":"Résident · Ganvié","meet.q2":"« Je vous ferai découvrir ma famille sur l'eau à Ganvié. »","meet.r3":"Journaliste professionnel","meet.q3":"« Vous pourrez vivre vos moments à 100%. Vous partirez avec le film de votre séjour, un souvenir fantastique. »","meet.r4":"Guide tout terrain · Abomey Calavi","meet.q4":"« Je connais chaque lieu et son histoire. »","meet.r5":"Guide randonnée · Colorado du Bénin","meet.q5":"« Les canyons rouges, je les connais par cœur. Chaque sentier, chaque cascade — je vous emmène là où les cartes s'arrêtent. »","meet.r6":"Guide · Cotonou","meet.q6":"« Guide toujours là pour faire le lien avec la population, vous vous sentirez comme un vrai Béninois. C'est mon objectif. »","testi.eyebrow":"Ils ont vécu l'aventure","testi.title":"Des voyageurs transformés","testi.t1":"J'ai vécu une expérience inoubliable avec mon guide Charles, un pêcheur qui m'a fait découvrir les secrets de la lagune. Et l'initiation au vaudou… waouh !","testi.l1":"France · Circuit 1","testi.t2":"Le Colorado du Bénin est un secret bien gardé. Des paysages de canyons rouges incroyables et un accueil villageois d'une générosité rare.","testi.l2":"Québec · Circuit 2","testi.t3":"Je suis partie sceptique, je suis revenue transformée. Le vaudou, c'est une connexion profonde avec la nature et les ancêtres.","testi.l3":"Belgique · Initiation","cta.title":"Prêt à vivre votre Bénin ?","cta.text":"Recevez un itinéraire personnalisé sous 24h. Sans engagement.","cta.btn":"Demander mon devis gratuit","contact.eyebrow":"Prêt à partir ?","contact.title":"Parlons de votre voyage","contact.text":"Un message, un appel WhatsApp — et nous vous répondons sous 24h.","contact.h3":"Discutons de votre Bénin","contact.phone":"Téléphone","contact.email":"Email","contact.addr":"Adresse","contact.hours":"Horaires","contact.hoursv":"Lun - Sam : 8h - 19h (GMT+1)","form.name":"Nom complet *","form.nameph":"Votre nom","form.email":"Email *","form.phone":"Téléphone","form.circuit":"Circuit qui vous intéresse","form.custom":"Circuit sur mesure","form.msg":"Votre message","form.msgph":"Dates, nombre de personnes, envies...","form.submit":"Envoyer ma demande","form.note":"Réponse garantie sous 24h.","footer.about":"Circuits courts authentiques dans le Sud du Bénin. Rencontres vraies, paysages uniques, immersion vaudou.","footer.dl1":"Télécharger sur","footer.dl2":"Disponible sur","footer.benin":"Bénin","footer.tours":"Nos circuits","footer.guide":"Guide du voyageur","footer.meet":"Rencontres","footer.voodoo":"Initiation vaudou","footer.infos":"Infos","footer.legal":"Mentions légales","footer.privacy":"Confidentialité","footer.follow":"Suivez-nous","footer.copy":"© 2026 Le Colorado du Bénin — Esprit Bénin. Tous droits réservés."},
+  en:{"nav.home":"Home","nav.tours":"Tours","nav.guide":"Guide","nav.meet":"People","nav.voodoo":"Voodoo","nav.contact":"Contact","hero.eyebrow":"South Benin · Authentic · 2-3 days","hero.title":"Discover South Benin <span>differently</span>","hero.subtitle":"Short tours, genuine encounters and voodoo initiation. No mass tourism — only unique experiences with those who keep Beninese culture alive.","hero.cta1":"Book my tour →","hero.cta2":"Meet our local guides","hero.scroll":"Explore","promesse.badge":"Unique experience","promesse.title":"Live it — we handle the rest","promesse.text":"Five promises that turn a simple trip into an unforgettable memory.","promesse.c1t":"Your own film","promesse.c1p":"You leave with a professional film of your stay — a memory for life.","promesse.c2t":"Leave your phone aside","promesse.c2p":"Live 100%, we film for you. Be fully present in every moment.","promesse.c3t":"Like a real Beninese","promesse.c3p":"Full immersion in local life — you'll feel at home.","promesse.c4t":"Local prices guaranteed","promesse.c4p":"You'll always pay the real local rates. No \"tourist prices\" ever.","promesse.c5t":"Your souvenir song","promesse.c5p":"Tell us your first name and your feedback — an original Beninese song will tell your adventure.","why.eyebrow":"Why choose us","why.title":"A different way to travel in Benin","why.text":"Forget standardized tours. Here, every encounter is real, every step is designed to connect you to the soul of Benin.","why.c1t":"Passionate local guides","why.c1p":"Fishermen, craftspeople, voodoo priests — your hosts live and share their Benin, not a tourist script.","why.c2t":"Tailor-made tours","why.c2p":"2 or 3 days to explore the essentials without rushing. We adapt the itinerary to your wishes.","why.c3t":"Spiritual immersion","why.c3p":"Voodoo initiation with recognized masters, in a respectful, safe and deeply human setting.","tours.eyebrow":"Our tours","tours.title":"Two ways to experience South Benin","tours.text":"An essential 2-day discovery, or a full immersion with voodoo initiation — your choice.","tours.days2":"2 days","tours.signature":"★ Voodoo Initiation","tours.perperson":"FCFA / person","tours.t1tag":"GANVIÉ · OUIDAH","tours.t1title":"Discovery — Ganvié & Ouidah","tours.t1desc":"The lakeside city of Ganvié by canoe, Ouidah and the Door of No Return, the python temple, the Dantokpa market.","tours.t1level":"🟢 Easy · Family","tours.t2tag":"GANVIÉ · OUIDAH · VOODOO","tours.t2title":"Immersion — Ganvié, Ouidah & Voodoo Initiation","tours.t2desc":"The Discovery tour + a full voodoo initiation with a recognized priest: purification ritual, dance of the spirits, offerings and the Fa.","tours.t2level":"🟡 Easy · Spiritual","quote.text":"\"Voodoo is not black magic. It is a philosophy, a way of living in harmony with nature.\"","quote.author":"— Voodoo Priest","guide.eyebrow":"Traveler's guide","guide.title":"Benin, hidden jewel of West Africa","guide.text":"5 off-the-beaten-path places to truly live the experience.","guide.g1t":"Ouidah","guide.g1p":"The Door of No Return, the python temple, the slavery history museum.","guide.g2t":"Abomey Calavi","guide.g2p":"The pier to Ganvié, lively market, university and daily life.","guide.g3t":"Cotonou","guide.g3p":"The economic capital, Dantokpa market, Amazon Monument, bustling life.","guide.g4t":"Ganvié","guide.g4p":"The African Venice, lakeside city, stilt houses, canoes and fishermen.","guide.g5t":"Voodoo initiation","guide.g5p":"Full ritual with a recognized priest, offerings and revelation of your Fa.","voodoo.eyebrow":"Spiritual immersion","voodoo.title":"Voodoo, far more than a cliché","voodoo.text":"A full religion recognized by UNESCO, voodoo was born here in Benin. With us, you will not just observe — you will be initiated by a voodoo priest in a respectful and safe setting.","voodoo.l1":"<strong>Purification ritual</strong> — herbal bath, fumigation","voodoo.l2":"<strong>Dance of the spirits</strong> — chants and drums","voodoo.l3":"<strong>Meeting the deities</strong> — offerings and prayers","voodoo.l4":"<strong>Symbol explanations</strong> — veves, fetishes, legends","voodoo.l5":"<strong>Your personal Fa</strong> — you'll leave with your Fa revealed","voodoo.cta":"Book my initiation","meet.eyebrow":"Your guides · Your hosts · Your masters","meet.title":"Authentic encounters","meet.text":"These are not tour guides. They are Beninese who open their world to you.","meet.r1":"Organization coordinator · Abomey Calavi","meet.q1":"\"I coordinate everything to ensure your well-being with the different local partners.\"","meet.r2":"Resident · Ganvié","meet.q2":"\"I'll introduce you to my family on the water in Ganvié.\"","meet.r3":"Professional journalist","meet.q3":"\"You'll live your moments 100%. You'll leave with the film of your stay — a fantastic memory.\"","meet.r4":"All-terrain guide · Abomey Calavi","meet.q4":"\"I know every place and its story.\"","meet.r5":"Hiking guide · Benin Colorado","meet.q5":"\"The red canyons, I know them by heart. Every trail, every waterfall — I'll take you where the maps stop.\"","meet.r6":"Guide · Cotonou","meet.q6":"\"Always here to connect you with the people. You'll feel like a real Beninese — that's my goal.\"","testi.eyebrow":"They lived the adventure","testi.title":"Transformed travelers","testi.t1":"I had an unforgettable experience with my guide Charles, a fisherman who revealed the secrets of the lagoon. And the voodoo initiation… wow!","testi.l1":"France · Tour 1","testi.t2":"The Benin Colorado is a well-kept secret. Amazing red canyon landscapes and an unusually generous village welcome.","testi.l2":"Quebec · Tour 2","testi.t3":"I left skeptical, I came back transformed. Voodoo is a deep connection with nature and the ancestors.","testi.l3":"Belgium · Initiation","cta.title":"Ready to live your Benin?","cta.text":"Get a personalized itinerary within 24h. No commitment.","cta.btn":"Get my free quote","contact.eyebrow":"Ready to go?","contact.title":"Let's talk about your trip","contact.text":"A message, a WhatsApp call — and we reply within 24h.","contact.h3":"Let's plan your Benin","contact.phone":"Phone","contact.email":"Email","contact.addr":"Address","contact.hours":"Hours","contact.hoursv":"Mon - Sat: 8am - 7pm (GMT+1)","form.name":"Full name *","form.nameph":"Your name","form.email":"Email *","form.phone":"Phone","form.circuit":"Tour of interest","form.custom":"Custom tour","form.msg":"Your message","form.msgph":"Dates, number of people, wishes...","form.submit":"Send my request","form.note":"Reply guaranteed within 24h.","footer.about":"Short authentic tours in South Benin. Real encounters, unique landscapes, voodoo immersion.","footer.dl1":"Download on","footer.dl2":"Get it on","footer.benin":"Benin","footer.tours":"Our tours","footer.guide":"Traveler's guide","footer.meet":"People","footer.voodoo":"Voodoo initiation","footer.infos":"Info","footer.legal":"Legal notice","footer.privacy":"Privacy","footer.follow":"Follow us","footer.copy":"© 2026 Le Colorado du Bénin — Esprit Bénin. All rights reserved."},
+  fon:{"nav.home":"Xwé","nav.tours":"Tomɛ-yiyi","nav.guide":"Kplɔnnumɛ","nav.meet":"Mɛ-kpɔn","nav.voodoo":"Vodun","nav.contact":"Ylɔ-mi","hero.eyebrow":"Bénin Hwesivɔ · Nugbǒ · Azǎn 2-3","hero.title":"Mɔ Bénin Hwesivɔ <span>ɖò alɔ ɖevo</span>","hero.subtitle":"Tomɛ-yiyi kpɛví, mɛ-kpɔn jɔ mɛ kpódó vodun-kplɔnnu kpó. É nyí tourisme kpódó mɛ gegě, loɔ, nǔwiwa kpikpɛ xá mɛ e nɔ zé Bénin-gbè kan gbigbɔ.","hero.cta1":"Un ɖo tomɛ-yiyi ce →","hero.cta2":"Mɔ kplɔnnumɛtɔ́ mǐtɔn","hero.scroll":"Mɔ","promesse.badge":"Nǔwiwa ɖokpo géé","promesse.title":"Zán, mǐ na kpɔ́n nǔ ɖevo lɛ","promesse.text":"Akpá atɔ́ɔ́n e na ɖyɔ́ tomɛ-yiyi ɖokpo dó flinnu e è ma nɔ wɔn ǎ.","promesse.c1t":"Fotóyiyi towe ɖésú","promesse.c1p":"A na tɔ́n kpó fotóyiyi azɔ̌wiwa tɔn tomɛ-yiyi towe tɔn kpó — flinnu nú gbɛzán bǐ.","promesse.c2t":"Jó alokan towe","promesse.c2p":"Zán 100%, mǐ na yí fotó nú we. Nɔ fí kpó ayi bǐ kpó hwenu bǐ.","promesse.c3t":"Bénin-nu nugbǒ","promesse.c3p":"Byɔ bǐ mlɛ́mlɛ́ ɖò gbɛ̀-mɛnu jí — a na ɖi xwé towe jí.","promesse.c4t":"Axi tomɛnu","promesse.c4p":"A na sú axi nugbǒ tomɛnu lɛ hwebinu. Tourisme-axi ɖé ǎ.","promesse.c5t":"Han flinnu towe","promesse.c5p":"Ná mǐ nyikɔ towe kpó xóɖɔɖɔ towe kpó — Bénin-han yɔyɔ̌ ɖokpo na ɖɔ tomɛ-yiyi towe xó.","why.eyebrow":"Étɛ́ wú mǐ ka jí","why.title":"Alɔ ɖevo bo na yi tomɛ ɖò Bénin","why.text":"Jó tomɛ-yiyi wɛnyí dó. Fí ɔ, mɛ-kpɔn bǐ nyí nǔgbǒ, afɔɖido bǐ ɔ, è nɔ bló ɖó ná kplá we jɛ Bénin-gbɔjɔ mɛ.","why.c1t":"Kplɔnnumɛtɔ́ tomɛnu","why.c1p":"Húvɔntɔ́, alɔnuwatɔ́, vodun-nɔtɔ́ — kplɔnnumɛtɔ́ towe lɛ nɔ zán Bénin yetɔn.","why.c2t":"Tomɛ-yiyi bǐ ɖɔkpo-kpoɖo","why.c2p":"Azǎn 2 alǒ 3 bo na mɔ nǔ taji lɛ ma ɖò yawǔ ǎ. Mǐ nɔ bló ɖó xá jlǒ towe.","why.c3t":"Gbigbɔ-kplɔnnumɛ","why.c3p":"Vodun-kplɔnnu xá gǎn e è tuun lɛ mɛ, ɖò fí e è nɔ kpɔ́n nugbǒ mɛ.","tours.eyebrow":"Tomɛ-yiyi mǐtɔn","tours.title":"Alɔ we bo na zán Bénin Hwesivɔ","tours.text":"Mɔkpɔn azǎn 2 tɔn, alǒ vodun-kplɔnnu kpó bǐ kpó — a na sɔ́.","tours.days2":"Azǎn 2","tours.signature":"★ Vodun-kplɔnnu","tours.perperson":"FCFA / mɛ ɖokpo","tours.t1tag":"GANVIÉ · OUIDAH","tours.t1title":"Mɔkpɔn — Ganvié kpó Ouidah kpó","tours.t1desc":"Ganvié tɔ-sisá-toxo ɖò gló jí, Ouidah kpó Hɔn e é ma nɔ lɛ́ gbɔ ǎ kpó, vodun-xɔ dàn tɔn, Dantokpa axi.","tours.t1level":"🟢 Bɔwǔ · Hɛnnumɛ","tours.t2tag":"GANVIÉ · OUIDAH · VODUN","tours.t2title":"Gbigbɔ-yi — Ganvié, Ouidah kpó Vodun-kplɔnnu kpó","tours.t2desc":"Tomɛ-yiyi Mɔkpɔn + vodun-kplɔnnu blíblí xá vodunnɔ e è tuun mɛ : gbigbosin-walɔ, yɛ-wèwè-dro, nùnamɛ kpó Fa kpó.","tours.t2level":"🟡 Bɔwǔ · Gbigbɔ","quote.text":"« Vodun nyí mlɔn wǔvɛ́ ǎ. É nyí nukúnnúmɔjɛnǔmɛ, alɔ bo na nɔ gbɛ̀ xá gbigbɔnú lɛ. »","quote.author":"— Vodunnɔ","guide.eyebrow":"Kplɔnnumɛ tomɛyitɔ́ tɔn","guide.title":"Bénin, kɔfú ɖèɖè Afrique Ganmɛ tɔn","guide.text":"Fí 5 e ma nɔ ali gbɛ́ ɔ jí ǎ, bo na zán nǔwiwa ɔ nugbǒ.","guide.g1t":"Ouidah","guide.g1p":"Hɔn e é ma nɔ lɛ́ gbɔ ǎ, vodun-xɔ dàn tɔn, kannumɔ̌-tan-nǔxixa-xɔ.","guide.g2t":"Abomey Calavi","guide.g2p":"Ganvié-ali-nu, axi yayǎ, nùkplɔnmɛxɔ kpó gbɛzán azǎngbe tɔn kpó.","guide.g3t":"Cotonou","guide.g3p":"Akwɛ-to-gbɛ́, Dantokpa axi, Amazone-kunnuɖewema, gbɛzán jijɛ tɔn.","guide.g4t":"Ganvié","guide.g4p":"Afrika-Venise, tɔ-sisá-toxo, xɔ ɖò sìnsinsin jí, gló kpó húvɔntɔ́ lɛ kpó.","guide.g5t":"Vodun-kplɔnnu","guide.g5p":"Walɔ blíblí xá vodunnɔ e è tuun mɛ, nùnamɛ kpó Fa towe xixlɛ́.","voodoo.eyebrow":"Gbigbɔ-kplɔnnumɛ","voodoo.title":"Vodun, é hú nǔxóxó ɖokpo géé","voodoo.text":"Sinsɛn nugbǒ e UNESCO tuun, vodun jɔ fí ɖò Bénin. Xá mǐ ɔ, a na kpɔ́n ǎ kɛɖɛ : è na sɔ́ we alǒ dó vodunnɔ ɖokpo ɖò fí sísí mɛ.","voodoo.l1":"<strong>Gbigbosin-walɔ</strong> — amaʦi-lɛnwu, gbɔ-dó","voodoo.l2":"<strong>Yɛ-wèwè-dro</strong> — han kpó hɔ̌ kpó","voodoo.l3":"<strong>Kpé vodun lɛ</strong> — nùnamɛ kpó ɖɛ kpó","voodoo.l4":"<strong>Wunɖɛɖɛ tinmɛ</strong> — veve, bǒ, xóxóxó","voodoo.l5":"<strong>Fa towe ɖésú</strong> — a na tɔ́n kpó Fa towe e è ɖè xlɛ́ we ɔ kpó","voodoo.cta":"Un ɖo vodun-kplɔnnu ce","meet.eyebrow":"Kplɔnnumɛtɔ́ · Xwétɔ́ · Gǎn towe lɛ","meet.title":"Mɛ-kpɔn nugbǒ lɛ","meet.text":"É ma nyi kplɔnnumɛtɔ́ tourisme tɔn ǎ. Bénin-nu lɛ wɛ, bo nɔ hun yeɖée gbɛ̀ nú we.","meet.r1":"Tomɛ-yiyi kpinkpan-tɔ́ · Abomey Calavi","meet.q1":"« Un nɔ kpinkpan nǔ bǐ ɖó ayi towe jí xá mɛ e ɖò fí lɛ. »","meet.r2":"Ganvié-nu · Ganvié","meet.q2":"« Un na xlɛ́ we hɛnnu ce ɖò sìn jí ɖò Ganvié. »","meet.r3":"Xóɖɔtɔ́ azɔwatɔ́","meet.q3":"« A na zán hwenu towe bǐ 100%. A na tɔ́n kpó fotóyiyi tomɛ-yiyi towe tɔn kpó, flinnu jiwǔ ɖokpo. »","meet.r4":"Kplɔnnumɛtɔ́ fí bǐ · Abomey Calavi","meet.q4":"« Un tuun fí ɖokpo ɖokpo kpó tan tɔn kpó. »","meet.r5":"Sózɔn-kplɔnnumɛtɔ́ · Colorado du Bénin","meet.q5":"« Kanyon vɔvɔ lɛ, un tuun ye kpó ayi ce bǐ kpó. Un na kplá we yi fí e kátɔbí ma jɛ ǎ. »","meet.r6":"Kplɔnnumɛtɔ́ · Cotonou","meet.q6":"« Un nɔ ɖò fí hwebinu bó na na we sìnsínsín xá tomɛnu lɛ, a na ɖi Bénin-nu nugbǒ. É nyí ayi ce ɖɛkpɛ. »","testi.eyebrow":"Ye zán tomɛ-yiyi ɔ","testi.title":"Tomɛyitɔ́ e è ɖyɔ́ lɛ","testi.t1":"Un zán nǔ e è ma nɔ wɔn ǎ xá kplɔnnumɛtɔ́ ce Charles. Vodun-kplɔnnu ɔ… wɔw!","testi.l1":"France · Tomɛ-yiyi 1","testi.t2":"Bénin Colorado ɔ nyí xó ɖèɖè ɖokpo. Kanyon vɔvɔ jiwǔ kpó xwé-yiyi gletoxomɛ kpó e nɔ̌ nyɔ́ tawun.","testi.l2":"Québec · Tomɛ-yiyi 2","testi.t3":"Un tɔ́n bo ma ɖi nǔ nú ǎ, un lɛ́kɔ wá bo ɖyɔ́. Vodun ɔ nyí kannumɔ̌ jiji xá gbigbɔnú.","testi.l3":"Belgique · Kplɔnnu","cta.title":"A sɔ́ ɖò acɔ́ bo zán Bénin towe a ?","cta.text":"Mɔ ali-yiyi ɖokpo-kpoɖo ɖò gǎngán 24. Ma ɖǒ dò.","cta.btn":"Un byɔ́ axi-kpinkɔn vɔ̌nnɔ","contact.eyebrow":"A sɔ́ ɖò acɔ́ bo yi ?","contact.title":"Mǐ na ɖɔ xó dó tomɛ-yiyi towe wu","contact.text":"Wema ɖokpo, WhatsApp-ylɔ ɖokpo — bɔ mǐ na gbɔ ylɔ́ we ɖò gǎngán 24 mɛ.","contact.h3":"Mǐ na ɖɔ xó dó Bénin towe wu","contact.phone":"Tɛlefɔ́nu","contact.email":"Email","contact.addr":"Xwéfí","contact.hours":"Ganɖe lɛ","contact.hoursv":"Azǎngbe - Gbɔjɛgbe : 8 - 19 (GMT+1)","form.name":"Nyikɔ blíblí *","form.nameph":"Nyikɔ towe","form.email":"Email *","form.phone":"Tɛlefɔ́nu","form.circuit":"Tomɛ-yiyi e jló we","form.custom":"Tomɛ-yiyi ɖokpo-kpoɖo","form.msg":"Wema towe","form.msgph":"Azǎn lɛ, mɛ nabí, jlǒ...","form.submit":"Sɛ́ byɔbyɔ ce dó","form.note":"È na gbɔ́ nú we ɖò gǎngán 24 mɛ.","footer.about":"Tomɛ-yiyi kpɛví nugbǒ ɖò Bénin Hwesivɔ. Mɛ-kpɔn nugbǒ, nǔmɔnǔtɔn ɖèɖè, vodun-gbigbɔ.","footer.dl1":"Yí ɖò","footer.dl2":"É tíìn ɖò","footer.benin":"Bénin","footer.tours":"Tomɛ-yiyi mǐtɔn","footer.guide":"Kplɔnnumɛ tomɛyitɔ́ tɔn","footer.meet":"Mɛ-kpɔn","footer.voodoo":"Vodun-kplɔnnu","footer.infos":"Nǔnywɛ","footer.legal":"Sɛ́n-nuxóxó","footer.privacy":"Adobɔ","footer.follow":"Xwedó mǐ","footer.copy":"© 2026 Le Colorado du Bénin. Acɛ bǐ ɖò mǐ sí."}
+};
+
+const header=document.querySelector('.header');
+window.addEventListener('scroll',()=>{if(window.scrollY>60)header.classList.add('scrolled');else header.classList.remove('scrolled')});
+const mt=document.querySelector('.menu-toggle'),nv=document.querySelector('.nav');
+if(mt)mt.addEventListener('click',()=>nv.classList.toggle('open'));
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+document.querySelectorAll('form[data-demo]').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();const b=f.querySelector('button[type="submit"]');const t=b.innerHTML;b.innerHTML='✓';f.reset();setTimeout(()=>{b.innerHTML=t},3000)}));
+
+function setLanguage(lang){
+  const dict=translations[lang]||translations.fr;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const key=el.getAttribute('data-i18n');if(dict[key]!==undefined)el.innerHTML=dict[key]});
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{const key=el.getAttribute('data-i18n-ph');if(dict[key]!==undefined)el.placeholder=dict[key]});
+  document.documentElement.lang=lang==='fon'?'fon':lang;
+  document.querySelectorAll('.lang-switch a').forEach(a=>{a.classList.toggle('active',a.getAttribute('data-lang')===lang)});
+  try{localStorage.setItem('lang',lang)}catch(e){}
+}
+document.querySelectorAll('.lang-switch a').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();setLanguage(a.getAttribute('data-lang'))})});
+try{const saved=localStorage.getItem('lang');if(saved&&translations[saved])setLanguage(saved)}catch(e){}
+
+// Lecteur musique
+const audio=document.getElementById('bg-music');
+const musicBtn=document.getElementById('music-toggle');
+const musicIcon=document.getElementById('music-icon');
+const musicText=document.getElementById('music-text');
+audio.volume=0.4;
+function toggleMusic(){
+  if(audio.paused){
+    audio.play().then(()=>{musicBtn.classList.add('playing');musicIcon.textContent='⏸';if(musicText)musicText.textContent='Pause'}).catch(()=>{});
+  } else {
+    audio.pause();musicBtn.classList.remove('playing');musicIcon.textContent='▶';if(musicText)musicText.textContent="Écouter l'ambiance";
+  }
+}
+musicBtn.addEventListener('click',toggleMusic);
+// Tentative autoplay au 1er scroll/clic (contournement blocage navigateur)
+let audioTried=false;
+function tryAutoplay(){
+  if(audioTried) return;
+  audioTried=true;
+  audio.play().then(()=>{musicBtn.classList.add('playing');musicIcon.textContent='⏸';if(musicText)musicText.textContent='Pause'}).catch(()=>{});
+}
+window.addEventListener('scroll',tryAutoplay,{once:true});
+document.addEventListener('click',e=>{if(e.target.closest('#music-toggle'))return;tryAutoplay()},{once:true});
+</script>
+</body>
+</html>
